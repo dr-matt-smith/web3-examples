@@ -1,0 +1,14 @@
+YAML
+
+http://gonzalo123.com/2013/03/04/scaling-silex-applications-part-ii-using-routecollection/
+
+
+annotations
+
+http://stackoverflow.com/questions/30583260/how-to-specify-silex-route-name-using-silex-annotation-provider
+https://github.com/dcousineau/orlex/blob/master/sample/app/Controllers/IndexController.php
+
+===
+this seems to be the main one people use:
+https://github.com/danadesrosiers/silex-annotation-provider
+

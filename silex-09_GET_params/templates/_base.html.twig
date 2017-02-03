@@ -1,0 +1,26 @@
+{#----------------#}
+{# templates/_base.html.twig #}
+{#----------------#}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>MGW - {% block title %}{% endblock %}</title>
+    <style>
+        @import '/css/style.css';
+    </style>
+</head>
+<body>
+
+<!-- nav -->
+<p>
+    <a href="/">home</a>
+</p>
+<hr>
+
+{% block main %}
+{% endblock %}
+
+</body>
+</html>

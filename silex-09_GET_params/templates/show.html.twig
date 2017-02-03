@@ -1,0 +1,28 @@
+{#----------------#}
+{# templates/show.html.twig #}
+{#----------------#}
+
+
+{% extends '_base.html.twig' %}
+
+{% block title %}one dvd page{% endblock %}
+
+{% block main %}
+<h1>One Great Dvd</h1>
+
+<h2>title = {{ dvd.title }}</h2>
+    <p>
+        <strong>price = &euro;</strong> {{ dvd.getPrice| number_format(2, '.', ',') }}
+    </p>
+    <p>
+        <strong>discount = </strong> {{ dvd.getDiscount| number_format(2, '.', ',') }}
+    </p>
+    <p>
+        <strong>price after discount = &euro;</strong> {{ dvd.getPriceAfterDiscount | number_format(2, '.', ',') }}
+    </p>
+
+<p>
+    <img src="/images/{{ dvd.image }}">
+</p>
+
+{% endblock %}

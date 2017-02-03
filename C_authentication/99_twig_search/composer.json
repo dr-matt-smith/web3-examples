@@ -1,0 +1,17 @@
+{
+    "require": {
+        "twig/twig": "2.0.x-dev",
+        "silex/silex": "2.0.x-dev",
+        "silex/web-profiler":"~2.0@dev"
+    },
+    "autoload": {
+        "psr-4" : {
+            "Hdip\\Controller\\": "src/controllers",
+            "Hdip\\Model\\": "src/model"
+        }
+    },
+    "scripts" : {
+        "phpunit": "php phpunit.phar --log-tap tests/log/phpunit.log",
+        "phpdoc": "php phpDocumentor.phar -d ./src2 -t ./src2/documentation"
+    }
+}

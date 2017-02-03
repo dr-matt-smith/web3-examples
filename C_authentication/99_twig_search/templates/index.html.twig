@@ -1,0 +1,48 @@
+{#----------------#}
+{# templates/list.html.twig #}
+{#----------------#}
+
+{% extends '_base.html.twig' %}
+
+{% block title %}home{% endblock %}
+
+{% block main %}
+
+<h1>World of Dvds</h1>
+
+    <ul>
+        <li>
+            <a href="/list">see a list of our DVD collection</a>
+        </li>
+
+        <li>
+            <a href="/show/1">see details for our best DVD</a>
+        </li>
+
+    </ul>
+
+    <hr>
+
+    <ul>
+        <li>
+            <a href="/hello?name=matt">pass 'matt' as 'name' to route 'hello'</a>
+        </li>
+
+        <li>
+            <form
+                    method="get"
+                    action="/search"
+            >
+                search keyword:
+                <input type="text" name="keyword">
+                <input type="submit" value="search">
+            </form>
+            <p>
+                enter 'recipe' for ALL, try 'cake' or 'cheese' or 'xmas' to filter search results
+            </p>
+        </li>
+
+
+    </ul>
+
+{% endblock %}

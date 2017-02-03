@@ -1,0 +1,17 @@
+{
+    "autoload": {
+        "psr-4" : {
+            "Hdip\\Controller\\": "src/controllers",
+            "Hdip\\Model\\": "src/model"
+        }
+    },
+    "scripts" : {
+        "phpunit": "php phpunit.phar --log-tap tests/log/phpunit.log",
+        "phpdoc": "php phpDocumentor.phar -d ./src2 -t ./src2/documentation"
+    },
+    "require": {
+        "silex/silex": "^2.0",
+        "twig/twig": "^2.1",
+        "silex/web-profiler": "^2.0"
+    }
+}

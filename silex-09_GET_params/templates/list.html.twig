@@ -1,0 +1,29 @@
+{#----------------#}
+{# templates/list.html.twig #}
+{#----------------#}
+
+{% extends '_base.html.twig' %}
+
+{% block title %}list page{% endblock %}
+
+{% block main %}
+
+<h1>Dvds</h1>
+
+    <ul>
+        {% set item_count = 0 %}
+
+        {% for dvd in dvds %}
+            <li>
+                <a href="/show/{{ dvd.id }}">{{ dvd.title }}</a>
+            </li>
+            {% set item_count = item_count + 1 %}
+        {% endfor %}
+
+    </ul>
+
+    <p>
+        number of items = {{ item_count }}
+    </p>
+
+{% endblock %}

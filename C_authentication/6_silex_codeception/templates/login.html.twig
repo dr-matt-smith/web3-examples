@@ -1,0 +1,40 @@
+{#----------------#}
+{# templates/show.html.twig #}
+{#----------------#}
+
+
+{% extends '_base.html.twig' %}
+
+{% block title %}one dvd page{% endblock %}
+
+{% block main %}
+
+    {% if errorMessage is defined%}
+    <p class="error">
+        {{ errorMessage }}
+    </p>
+
+    <hr>
+
+{% endif %}
+
+    <h1>Please login</h1>
+    <form
+            id="login"
+            method="post"
+            action="/login"
+            >
+
+        <p>
+            Username:
+            <input type="text" name="username" autofocus>
+        </p>
+        <p>
+            Password:
+            <input type="password" name="password">
+        </p>
+        <input type="submit" value="login">
+    </form>
+
+
+{% endblock %}

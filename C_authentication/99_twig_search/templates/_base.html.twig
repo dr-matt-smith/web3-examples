@@ -1,0 +1,56 @@
+{#----------------#}
+{# templates/_base.html.twig #}
+{#----------------#}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>MGW - {% block title %}{% endblock %}</title>
+    <style>
+        @import '/css/style.css';
+    </style>
+</head>
+<body>
+
+<!-- login header -->
+<header>
+    <!-- nav -->
+    <nav>
+        <ul>
+            <li>
+                <a href="/">home</a>
+            </li>
+
+            {# --------- secure links - only if logged in ----------- #}
+            {% if username %}
+                <li>
+                    <a href="/admin">secure Admin home</a>
+                </li>
+            {% endif %}
+
+
+        </ul>
+    </nav>
+
+    <!-- login / logout -->
+    <section>
+        {% if username %}
+            you are logged in as: {{ username }}
+            <br>
+            <a href="/logout">logout</a>
+        {% else %}
+            <a href="/login">Login</a>
+        {% endif %}
+    </section>
+</header>
+
+
+
+<hr>
+
+{% block main %}
+{% endblock %}
+
+</body>
+</html>

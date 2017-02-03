@@ -1,0 +1,77 @@
+mith - Friday, 4 December 2015, 12:27 PM
+ 
+if you need more help, post again to remind me (I'm tied up for the rest of today)
+
+but sessions and authentication look pretty easy in Silex if you use the SIlex session provider
+
+http://silex.sensiolabs.org/doc/providers/session.html
+
+ 
+
+it seems to be a few simple steps
+
+(1) Register the service provider in index.php
+
+·         in index.php register the service provider just after creating the application (just like we do for Twig)
+·          
+·          
+·          
+$app->register(new Silex\Provider\SessionServiceProvider());
+ 
+(2) usage, if not logged-in then redirect to login route
+ 
+
+·         after successful login we should be able to find that the user is logged into the session
+·         so 'user' is an array of users in the session
+·         so if 'matt' logged in, then $user['matt'] should exist in the Silex session array
+·               $app->get('/account', function () use ($app) {
+·                   if (null === $user = $app['session']->get('user')) {
+·                       return $app->redirect('/login');
+·                   }
+·                
+·                   return "Welcome {$user['username']}!";
+·               });
+ 
+·         so for EVERY route that requires authentication you would include the "if" statement above
+ 
+
+(3) the Silex login code
+ 
+
+I would usually write my own login form with a post route action, but the Silex example makes use of the PHP_AUTH_USER
+
+http://php.net/manual/en/features.http-auth.php
+
+which is a message to the browser to popup a standard username/password login dialog before allowing access to a resource - which is fine too ..
+
+ 
+
+·          the example actual login example code looks like this:
+·               $app->get('/login', function () use ($app) {
+·                   $username = $app['request']->server->get('PHP_AUTH_USER', false);
+·                   $password = $app['request']->server->get('PHP_AUTH_PW');
+·                
+·                   if ('igor' === $username && 'password' === $password) {
+·                       $app['session']->set('user', array('username' => $username));
+·                       return $app->redirect('/account');
+·                   }
+·                
+·                   $response = new Response();
+·                   $response->headers->set('WWW-Authenticate', sprintf('Basic realm="%s"', 'site_login'));
+·                   $response->setStatusCode(401, 'Please sign in.');
+·                   return $response;
+·               });
+ 
+·         note in this example code the only allowable username is 'igor' and the password has to be 'password'
+here you would write a db model function something like: isValidUserNameAndPassword($username, $password)
+
+that interrogates your user DB and returns true/false if the received usernamer / password exists ( with encryption of password hopefully..)
+
+e.g. 
+
+    if (isValidUsernameAndPassword($username, $password)) {
+
+
+ 
+
+hope this helps

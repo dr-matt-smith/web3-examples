@@ -1,0 +1,29 @@
+home:
+  route: /
+  method: get
+  controller: MainController
+  action: indexAction
+
+about:
+  route: /contact
+  method: get
+  controller: MainController
+  action: contactAction
+
+hello:
+  route: /hello/{name}
+  method: get
+  controller: HelloController
+  action: nameAction
+
+helloNoNname:
+  route: /hello/
+  method: get
+  controller: HelloController
+  action: indexAction
+
+login:
+  route: /login
+  method: get
+  controller: LoginController
+  action: loginAction
