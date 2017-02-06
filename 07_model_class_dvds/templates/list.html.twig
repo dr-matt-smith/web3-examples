@@ -1,0 +1,28 @@
+<h1>I am the list page</h1>
+
+
+
+
+<ul>
+    <li>
+        <a href="/contact">Contact Details</a>
+    </li>
+    <li>
+        <a href="/listst">list of DVDs</a>
+    </li>
+ </ul>
+
+<hr>
+<h1>
+    list of DVDS
+</h1>
+
+{% for dvd in dvds %}
+    <p>
+        id: {{ dvd.id }}
+        <br>
+        title: {{ dvd.title }}
+        <br>
+        price: {{ dvd.price }}
+    </p>
+{% endfor %}
