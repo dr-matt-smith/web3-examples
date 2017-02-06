@@ -1,18 +1,6 @@
-# add login authentication (part 1 of 2)
+# add login authentication (part 2 of 2)
 
-This first step for login authentication involves:
-- a login page
-- a method to extract and process gthe POST data username and password submitted form the login form
-- routes for and admin home page, and an admin secret codes page
-
-HOWEVER - in this first step there won't actually be any checks on the admin pages to see if the user is actually logged in (that's in part 2 ...)
-
-We'll do login and logout actions from a `UserController` class
-We'll manage secure 'admin' actions from an `AdminController` class
-
-Processing form data (e.g. from POST login submission) will illustrate how we access variables from the Request object inside our `WebApplication` object.
-
-We'll have 2 routes that should only be access when the user is logged in (`/admin` and `/admin/codes`). So we need to process login data and store successful login status in the SESSION object inside our application object (it's all about storing objects in our applications DI (Dependency Injection) container).
+In this second step, we start using Silex's SESSION service, to allow us to store successful login authenication details between requests.
 
 
 Here's a taster of the code to extract the username and password from the POST data received from the HTTP Request:

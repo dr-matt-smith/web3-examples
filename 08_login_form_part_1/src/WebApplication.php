@@ -21,7 +21,6 @@ class WebApplication extends Application
         parent::__construct();
 
         // setup Session and Service controller provider
-        $this->register(new Provider\SessionServiceProvider());
         $this->register(new Provider\ServiceControllerServiceProvider());
 
         $this['debug'] = true;

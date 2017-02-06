@@ -24,24 +24,6 @@ Here's a taster of the code to extract the username and password from the POST d
     $password = $request->get('password');
 
 
-1. We need to enable sessions in our WebApplication. We add a statement in the constructor to do this, next to our existing statement for the Service provider):
-
-    ```
-        public function __construct()
-        {
-            parent::__construct();
-
-            // setup Session provider
-            $this->register(new Provider\SessionServiceProvider());
-
-            $this->register(new Provider\ServiceControllerServiceProvider());
-
-            $this['debug'] = true;
-            $this->setupTwig();
-            $this->addRoutes();
-        }
-    ```
-
 1. In `WebApplication->addRoutes()` we add our 2 new classes (`UserController` and `AdminController`) as services:
 
     ```
