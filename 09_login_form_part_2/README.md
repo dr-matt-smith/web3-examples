@@ -7,7 +7,7 @@ We will do the following:
 
     in `app['session']->set('user'...)`
 
-- check username is in the session before allowing access to `/admin` and `/adminCodes` routes
+- check username is in the session before allowing access to `/admin` and `/admin/codes` routes
 
     (if no username in the session, then automatically redireect the user to the login page)
 
@@ -144,14 +144,15 @@ Note - at present the user isn't actually told that we are logged in or not (we'
     $this->get('/logout', 'user.controller:logoutAction');
     ```
 
-1. Then we need to actually declare the `logoutAction()` method in class `UserController`:
+1. Then we need to actually declare the `logoutAction()` method in class `UserController`. We remove the object in the session named 'user':
 
     ```
     // action for route:    /logout
     public function logoutAction()
     {
         // logout any existing user
-        $this->app['session']->set('user', null);
+        $this->app['session']->remove('user');
+
 
         // redirect to home page
         return $this->app->redirect('/');
@@ -161,4 +162,22 @@ Note - at present the user isn't actually told that we are logged in or not (we'
 1. Plus we need to add a navigation link to this logout route, we do this in `/templtes/_base.html.twig`:
 
     ```
+    <ul>
+        <li>
+            <a href="/">home</a>
+        </li>
+
+        <li>
+            <a href="/contact">contact</a>
+        </li>
+
+        <li>
+            <a href="/login">login</a>
+        </li>
+
+        <li>
+            <a href="/logout">logout</a>
+        </li>
+
+        etc.
     ```

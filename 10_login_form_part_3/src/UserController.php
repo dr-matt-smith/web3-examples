@@ -32,7 +32,6 @@ class UserController
         // logout any existing user
         $this->app['session']->remove('user');
 
-
         // redirect to home page
         return $this->app->redirect('/');
     }

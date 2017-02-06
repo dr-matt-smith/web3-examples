@@ -45,7 +45,6 @@ class UserController
         $templateName = 'login';
         $argsArray = array(
             'errorMessage' => 'bad username or password - please re-enter',
-            'username' => null // we don't care what old username was since this is login screen
         );
 
         return $this->app['twig']->render($templateName . '.html.twig', $argsArray);
