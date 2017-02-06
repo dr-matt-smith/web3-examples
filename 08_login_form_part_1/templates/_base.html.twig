@@ -1,0 +1,58 @@
+{#----------------#}
+{# templates/_base.html.twig #}
+{#----------------#}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>MGW - {% block title %}{% endblock %}</title>
+    <style>
+        @import '/css/style.css';
+    </style>
+</head>
+<body>
+
+<!-- login header -->
+<header>
+    <!-- nav -->
+    <nav>
+        <ul>
+            <li>
+                <a href="/">home</a>
+            </li>
+
+            <li>
+                <a href="/contact">contact</a>
+            </li>
+
+            <li>
+                <a href="/logout">logout</a>
+            </li>
+
+            <li>
+                <a href="/login">login</a>
+            </li>
+            <li>
+                <hr>
+                <a href="/admin">secure Admin home</a>
+            </li>
+
+            <li>
+                <a href="/admin/codes">secret codes list</a>
+            </li>
+        </ul>
+    </nav>
+
+
+</header>
+
+
+
+<hr>
+
+{% block main %}
+{% endblock %}
+
+</body>
+</html>

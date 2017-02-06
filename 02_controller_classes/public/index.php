@@ -5,6 +5,7 @@ require_once __DIR__.'/../vendor/autoload.php';
 
 //----------- create 'app' object ---------
 $app = new Silex\Application();
+$app['debug'] = true;
 
 //----------- map 'routes' to controller 'actions' -----------
 // main routes

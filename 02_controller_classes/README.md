@@ -1,5 +1,13 @@
 # link routes to methods of controller classes
 
+1. First let's maximise debug information, but enabling the 'debug' option of our Silex application in `/public/index.php`:
+
+    ```
+    //----------- create 'app' object ---------
+    $app = new Silex\Application();
+    $app['debug'] = true;
+    ```
+
 1. define routes with namespaced class and method in `index.php`
 
     ```
