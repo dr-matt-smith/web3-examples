@@ -167,9 +167,6 @@ Here's a taster of the code to extract the username and password from the POST d
 
         // authenticate!
         if ('user' === $username && 'user' === $password) {
-            // store username in 'user' in 'session'
-            $this->app['session']->set('user', array('username' => $username) );
-
             // success - redirect to the secure admin home page
             return $this->app->redirect('/admin');
         }
@@ -186,7 +183,7 @@ Here's a taster of the code to extract the username and password from the POST d
 
     ```
 
-    As you can see, if username and password both equal 'user', then we store the username in the Application session object (`$this->app['session']->set('user' ...`) and redirect to the `/admin` route. Otherwise we set an `errorMessage` variable and display the `login` template again.
+    As you can see, if username and password both equal 'user', redirect to the `/admin` route. Otherwise we set an `errorMessage` variable and display the `login` template again.
 
 1. So we need to add code to our `login.html.twig` template to display the `errorMessage` text, if it is received:
 
