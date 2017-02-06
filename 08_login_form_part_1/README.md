@@ -1,4 +1,4 @@
-# add login authentication (part 1 of 2)
+# add login authentication (part 1 of 3)
 
 This first step for login authentication involves:
 - a login page

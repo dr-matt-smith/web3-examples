@@ -26,6 +26,17 @@ class UserController
     }
 
 
+    // action for route:    /logout
+    public function logoutAction()
+    {
+        // logout any existing user
+        $this->app['session']->set('user', null);
+
+        // redirect to home page
+        return $this->app->redirect('/');
+    }
+
+
     // action for POST route:    /processLogin
     public function processLoginAction()
     {
@@ -36,6 +47,9 @@ class UserController
 
         // authenticate!
         if ('user' === $username && 'user' === $password) {
+            // store username in 'user' in 'session'
+            $this->app['session']->set('user', array('username' => $username) );
+
             // success - redirect to the secure admin home page
             return $this->app->redirect('/admin');
         }
