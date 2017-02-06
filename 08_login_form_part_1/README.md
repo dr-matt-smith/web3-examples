@@ -68,10 +68,6 @@ Here's a taster of the code to extract the username and password from the POST d
                 </li>
 
                 <li>
-                    <a href="/logout">logout</a>
-                </li>
-
-                <li>
                     <a href="/login">login</a>
                 </li>
                 <li>
