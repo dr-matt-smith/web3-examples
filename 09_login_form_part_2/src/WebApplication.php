@@ -66,6 +66,9 @@ class WebApplication extends Application
         $this->get('/login', 'user.controller:loginAction');
         $this->post('/login', 'user.controller:processLoginAction');
 
+        // ------ logout route GET ------------
+        $this->get('/logout', 'user.controller:logoutAction');
+
         // ------ SECURE PAGES ----------
         $this->get('/admin',  'admin.controller:indexAction');
         $this->get('/admin/codes',  'admin.controller:codesAction');

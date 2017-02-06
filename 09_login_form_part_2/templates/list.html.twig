@@ -1,0 +1,22 @@
+{% extends '_base.html.twig' %}
+
+{% block main %}
+
+<h1>I am the list page</h1>
+
+
+<h1>
+    list of DVDS
+</h1>
+
+{% for dvd in dvds %}
+    <p>
+        id: {{ dvd.id }}
+        <br>
+        title: {{ dvd.title }}
+        <br>
+        price: {{ dvd.price }}
+    </p>
+{% endfor %}
+
+{% endblock %}

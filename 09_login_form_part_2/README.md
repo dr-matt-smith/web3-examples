@@ -63,9 +63,12 @@ Here's a taster of the code to extract the username and password from the POST d
     $this->post('/login', 'user.controller:processLoginAction');
     ```
 
-1. let's also add 2 routes for our administrator, admin (home page) and admin secret codes page:
+1. let's also add a GET logout route (UserController), and 2 routes for our administrator, admin (home page) and admin secret codes page:
 
     ```
+    // ------ logout route GET ------------
+    $this->get('/logout', 'user.controller:logoutAction');
+
     // ------ SECURE PAGES ----------
     $this->get('/admin',  'admin.controller:indexAction');
     $this->get('/admin/codes',  'admin.controller:codesAction');
