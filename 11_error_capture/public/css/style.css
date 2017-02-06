@@ -1,0 +1,24 @@
+
+p.error {
+    padding: 1rem;
+    background-color: pink;
+}
+
+
+header {
+    background-color: lightgray;;
+    padding: 0.5rem;
+
+    display: flex;
+    align-items: center;;
+}
+
+header nav,
+header section {
+    flex: 1;
+}
+
+header section {
+    text-align: right;
+}
+
